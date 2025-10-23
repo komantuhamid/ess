@@ -25,8 +25,8 @@ interface PlayerCar {
   speedY: number;
 }
 
-const CANVAS_WIDTH = 420;
-const CANVAS_HEIGHT = 900;
+const CANVAS_WIDTH = 424;
+const CANVAS_HEIGHT = 695;
 const PLAYER_START_X = 180;
 const PLAYER_START_Y = 380;
 const PLAYER_WIDTH = 40;
