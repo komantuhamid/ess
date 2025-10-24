@@ -1,6 +1,5 @@
 import { LevelData } from '@/types/game';
 
-// Copy your testlevels.js data here and convert to TypeScript
 export const definedLevels: LevelData[] = [
   {
     width: 252,
@@ -8,11 +7,34 @@ export const definedLevels: LevelData[] = [
     id: 0,
     background: 1,
     data: [
-      // Paste your level arrays from testlevels.js here
-      // Example structure:
-      ['', '', '', 'grass_top', 'soil'],
-      ['', '', '', 'grass_top', 'soil'],
-      // ... more columns
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_left', 'pipe_left', 'pipe_left_grass', 'pipe_left_soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', 'pipe_top_right', 'pipe_right', 'pipe_right_grass', 'pipe_right_soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', 'mario', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', 'multiple_coinbox', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_left'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_middle'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'planted_soil_right'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', 'bush_left', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', 'bush_middle', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', 'bush_middle_right', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', 'bush_right', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', 'mushroombox', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', '', 'grass_top', 'soil'],
+      ['', '', '', '', '', '', '', '', '', '', '', '', 'ballmonster', 'grass_top', 'soil'],
+      // Add more columns... copy from your testlevels.js
+      // I'll show you a shortcut to convert it all
     ]
   }
 ];
