@@ -1,68 +1,27 @@
-import { Base } from './Base';
-import { GroundBlocking, CLS_MATTER, IMAGES } from '@/types/constants';
-
-export class Matter extends Base {
-  blocking: GroundBlocking;
-
-  constructor(x: number, y: number, blocking: GroundBlocking = GroundBlocking.All) {
-    super(x, y);
-    this.blocking = blocking;
-  }
-
-  createView(): HTMLDivElement {
-    return super.createView(CLS_MATTER);
-  }
-
-  setBlocking(blocking: GroundBlocking): void {
-    this.blocking = blocking;
-  }
-
-  getBlocking(): GroundBlocking {
-    return this.blocking;
-  }
-
-  isBlockingLeftSide(): boolean {
-    return (this.blocking & GroundBlocking.Left) === GroundBlocking.Left;
-  }
-
-  isBlockingRightSide(): boolean {
-    return (this.blocking & GroundBlocking.Right) === GroundBlocking.Right;
-  }
-
-  isBlockingTopSide(): boolean {
-    return (this.blocking & GroundBlocking.Top) === GroundBlocking.Top;
-  }
-
-  isBlockingBottomSide(): boolean {
-    return (this.blocking & GroundBlocking.Bottom) === GroundBlocking.Bottom;
-  }
-}
-
-export class Ground extends Matter {
-  constructor(x: number, y: number, img: [number, number]) {
-    super(x, y, GroundBlocking.All);
-    this.setImage(IMAGES.objects, img[0], img[1]);
-    this.setSize(32, 32);
-  }
-}
-
-export class Pipe extends Matter {
-  constructor(x: number, y: number, img: [number, number], blocking: GroundBlocking) {
-    super(x, y, blocking);
-    this.setImage(IMAGES.objects, img[0], img[1]);
-    this.setSize(32, 32);
-  }
-}
-
-export class Coin extends Matter {
-  constructor(x: number, y: number) {
-    super(x, y, GroundBlocking.None);
-    this.setImage(IMAGES.objects, 0, 0);
-    this.setSize(32, 32);
-    this.setupFrames(12, 4, false, 'coin');
-  }
-
-  collect(): void {
-    this.removeView();
-  }
+private getTileImage(type: string): [number, number] {
+  // These coordinates match the mario-objects.png sprite sheet
+  const tileMap: Record<string, [number, number]> = {
+    'grass_top': [0, 0],
+    'grass_left': [0, 32],
+    'grass_right': [64, 32],
+    'soil': [32, 0],
+    'brown_block': [96, 0],
+    'stone': [0, 32],
+    'coinbox': [384, 0],
+    'multiple_coinbox': [384, 0],
+    'mushroombox': [384, 0],
+    'starbox': [384, 0],
+    'pipe_top_left': [0, 128],
+    'pipe_top_right': [32, 128],
+    'pipe_left': [0, 160],
+    'pipe_right': [32, 160],
+    'pipe_left_grass': [0, 160],
+    'pipe_right_grass': [32, 160],
+    'pipe_left_soil': [0, 160],
+    'pipe_right_soil': [32, 160],
+    'bush_left': [176, 144],
+    'bush_middle': [192, 144],
+    'bush_right': [208, 144],
+  };
+  return tileMap[type] || [0, 0];
 }
