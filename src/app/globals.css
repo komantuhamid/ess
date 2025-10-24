@@ -1,97 +1,70 @@
-@font-face {
-	font-family: 'SMB';
-	src: local('Super Mario Bros.'),
-		 url('fonts/Super Mario Bros.ttf') format('truetype');
-	font-style: normal;
- }
- 
- body, html {
-   margin: 0;
-   padding: 0;
-   height: 100%;
-   overflow: hidden;
- }
- 
- #game {
-   height: 100%;
-   width: 100%;
-   position: relative;
-   border: 1px solid #ccc;
-   overflow: hidden;
- }
- 
- #world { 
-   margin: 0;
-   padding: 0;
-   height: 100%;
-   width: 100%;
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   z-index: 0;
- }
- 
- .gauge {
-   margin: 0;
-   padding: 0;
-   height: 50px;
-   width: 70px;
-   text-align: right;
-   font-size: 2em;
-   font-weight: bold;
-   position: absolute;
-   top: 17px;
-   right: 52px;
-   z-index: 1000;
-   font-family: 'SMB';
- }
- 
- .gaugeSprite {
-   margin: 0;
-   padding: 0;
-   z-index: 1000;
-   position: absolute;
- }
- 
- #coinNumber {
-   left: 0;
- }
- 
- #liveNumber {
-   right: 52px;
- }
- 
- #coin {
-   height: 32px;
-   width: 32px;
-   background-image: url(mario-objects.png);
-   background-position: 0 0;
-   top: 15px;
-   left: 70px;
- }
- 
- #live {
-   height: 40px;
-   width: 40px;
-   background-image: url(mario-sprites.png);
-   background-position: 0 -430px;
-   top: 12px;
-   right: 8px;
- }
- 
- .figure {
-   margin: 0;
-   padding: 0;
-   z-index: 99;
-   position: absolute;
- }
- 
- .matter {
-   margin: 0;
-   padding: 0;
-   z-index: 95;
-   position: absolute;
-   width: 32px;
-   height: 32px;
- }
- 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Press Start 2P", cursive;
+  overflow: hidden;
+}
+
+.game-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.game-wrapper {
+  background: #000;
+  border: 4px solid #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.game-ui {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  border-bottom: 2px solid #fff;
+}
+
+.ui-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.ui-item span {
+  color: #ff8c00;
+}
+
+.game-viewport {
+  width: 512px;
+  height: 480px;
+  overflow: hidden;
+  position: relative;
+  background: #5c94fc;
+}
+
+.game-world {
+  position: absolute;
+  transition: transform 0.05s linear;
+}
+
+.figure,
+.matter {
+  position: absolute;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+}
+
+.figure {
+  z-index: 10;
+}
+
+.matter {
+  z-index: 1;
+}
