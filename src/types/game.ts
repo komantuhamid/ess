@@ -1,35 +1,38 @@
-export enum Directions {
-  None = 0,
-  Left = 1,
-  Up = 2,
-  Right = 3,
-  Down = 4
+export interface Position {
+  x: number;
+  y: number;
 }
 
-export enum MarioStates {
-  Normal = 0,
-  Fire = 1
+export interface Size {
+  width: number;
+  height: number;
 }
 
-export enum SizeStates {
-  Small = 1,
-  Big = 2
+export interface ImageData {
+  path: string;
+  x: number;
+  y: number;
 }
 
-export enum GroundBlocking {
-  None = 0,
-  Left = 1,
-  Top = 2,
-  Right = 4,
-  Bottom = 8,
-  All = 15
+export interface LevelData {
+  width: number;
+  height: number;
+  id: number;
+  background: number;
+  data: string[][];
 }
 
-export const GAME_CONSTANTS = {
-  interval: 20,
-  bounce: 15,
-  gravity: 2,
-  jumping_v: 27,
-  walking_v: 5,
-  // ... baki dial constants
+export interface KeyState {
+  accelerate: boolean;
+  left: boolean;
+  up: boolean;
+  right: boolean;
+  down: boolean;
+}
+
+export interface GameState {
+  coins: number;
+  lives: number;
+  score: number;
+  time: number;
 }
